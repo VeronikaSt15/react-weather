@@ -15,22 +15,13 @@ class App extends React.Component {
         sunset: undefined,
         error: undefined,
         wind: undefined,
+        description: undefined,
         main: undefined
     }
     gettingWeather = async (e) => {
         e.preventDefault();
         const city = e.target.elements.city.value;
-        // if (city) {
-        //     const api_url = await
-        //         fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
-        //     const data = await api_url.json();
-        //
-        //     if(data.cod === '404') {
-        //         this.setState({
-        //             error: 'Введите правильно название на английском'
-        //         })
-        //         return;
-        //     }
+
             if (city) {
                 const api_url = await
                     fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
@@ -74,6 +65,8 @@ class App extends React.Component {
                         sunrise: sunrise_date,
                         sunset: sunset_date,
                         wind: data.wind.speed,
+                        main: data.weather[0].main,
+                        description: data.weather[0].description,
                         error: undefined
                     }
                 );
@@ -85,6 +78,8 @@ class App extends React.Component {
                     sunrise: undefined,
                     sunset: undefined,
                     wind: undefined,
+                    main: undefined,
+                    description: undefined,
                     error: "Write name of your city"
                 });
             }
@@ -104,6 +99,8 @@ class App extends React.Component {
                         sunrise={this.state.sunrise}
                         sunset={this.state.sunset}
                         wind={this.state.wind}
+                        main={this.state.main}
+                        description={this.state.description}
                         error={this.state.error}
                     />
                 </div>

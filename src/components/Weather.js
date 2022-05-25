@@ -13,8 +13,16 @@ class Weather extends React.Component {
                         <div>{this.props.city}, {this.props.country}</div>
                     </div>
                     <div className="weather-item">
+                        <div>Weather</div>
+                        <div>{this.props.main} ({this.props.description})</div>
+                    </div>
+                    <div className="weather-item">
                         <div>Temperature</div>
                         <div> {this.props.temp} °C </div>
+                    </div>
+                    <div className="weather-item">
+                        <div>Wind speed</div>
+                        <div>{this.props.wind} m/sec</div>
                     </div>
                     <div className="weather-item">
                         <div>Sunrise time</div>
@@ -23,10 +31,6 @@ class Weather extends React.Component {
                     <div className="weather-item">
                         <div>Sunset time</div>
                         <div>{this.props.sunset}</div>
-                    </div>
-                    <div className="weather-item">
-                        <div>Wind speed</div>
-                        <div>{this.props.wind} m/sec</div>
                     </div>
                 </div>
                 }
